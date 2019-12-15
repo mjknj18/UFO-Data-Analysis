@@ -5,15 +5,13 @@ var tableData = data;
 function generateTable(Data)
 
     // Create Table & Column Headers
-    {var thead = d3.select("thead").selectAll("th").data(d3.keys(Data[0])).enter()
-    .append("th").text(function(x){return x});
+    {var thead = d3.select("thead").selectAll("th").data(d3.keys(Data[0])).enter().append("th").text(x => x);
 
     // Add Rows to Table
     var tr = d3.select("tbody").selectAll("tr").data(Data).enter().append("tr")
     
     // Add Cells to Table & Insert Data
-    var td = tr.selectAll("td").data(function(x){return d3.values(x)}).enter().append("td")
-    .text(function(x) {return x})}
+    var td = tr.selectAll("td").data(x => d3.values(x)).enter().append("td").text(x => x)}
 
 // Display Full Table on Web Page Initialization    
 generateTable(tableData)
@@ -33,15 +31,47 @@ function filterData()
     // Extract Date Filter from HTML Form
     var date = d3.select("#datetime").node().value
 
+    // Extract City Filter from HTML Form
+    var city = d3.select("#city").node().value
+
+    // Extract State Filter from HTML Form
+    var state = d3.select("#state").node().value
+
+    // Extract Country Filter from HTML Form
+    var country = d3.select("#country").node().value
+
+    // Extract Shape Filter from HTML Form
+    var shape = d3.select("#shape").node().value
+
     // Filter Data Based on Date
     if (date !== "")
         {filteredData = filteredData.filter(y => y.datetime === date)}
+
+    // Filter Data Based on City
+    if (city !== "")
+        {filteredData = filteredData.filter(y => y.city === city.toLowerCase())}
+
+    // Filter Data Based on State
+    if (state !== "")
+        {filteredData = filteredData.filter(y => y.state === state.toLowerCase())}
+
+    // Filter Data Based on Country
+    if (country !== "")
+        {filteredData = filteredData.filter(y => y.country === country.toLowerCase())}
+
+    // Filter Data Based on Shape
+    if (shape !== "")
+        {filteredData = filteredData.filter(y => y.shape === shape.toLowerCase())}
     
     // Display Full Table on Web Page
     generateTable(filteredData)
 
     // Clear Filter Fields
-    d3.select("#datetime").node().value = ""}
+    d3.select("#datetime").node().value = ""
+    d3.select("#city").node().value = ""
+    d3.select("#state").node().value = ""
+    d3.select("#country").node().value = ""
+    d3.select("#shape").node().value = ""}
 
 // Listen for Apply Filter Button Click
 d3.select("#filter-btn").on("click", filterData)
