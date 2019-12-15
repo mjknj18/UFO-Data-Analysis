@@ -78,7 +78,7 @@ function filterData()
     // Clear Country Filter Field in HTML Form
     d3.select("#country").node().value = ""
 
-    // Cleanr Shape Filter Field in HTML Form
+    // Clear Shape Filter Field in HTML Form
     d3.select("#shape").node().value = ""}
 
 // Listen for Apply Filter Button Click
