@@ -13,10 +13,9 @@ function generateTable(Data)
     
     // Add Cells to Table & Insert Data
     var td = tr.selectAll("td").data(function(x){return d3.values(x)}).enter().append("td")
-    .text(function(x) {return x})}
+    .text(function(x) {return x})
 
-// Generate Table on Web Page Initialization
-generateTable(tableData);
+    console.log(td)}
 
 // Define Function for Filtering Data
 function filterData()
@@ -30,7 +29,9 @@ function filterData()
     console.log(date)
 
     if (date !== "")
-        {filteredData = filteredData.filter(data => data.Date === date)
-        console.log(filteredData)}}
+        {filteredData = filteredData.filter(data => data.datetime === date)
+        console.log(filteredData)}
+    
+    generateTable(filteredData)}
 
 d3.select("#filter-btn").on("click", filterData)
