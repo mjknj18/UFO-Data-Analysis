@@ -2,7 +2,7 @@
 var tableData = data;
 
 // Fefine Function for Table Generation
-//function generateTable()
+function generateTable()
 
     // EXTRACT VALUE FOR HTML HEADER. 
         // ('Book ID', 'Book Name', 'Category' and 'Price')
