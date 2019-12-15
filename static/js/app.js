@@ -66,11 +66,19 @@ function filterData()
     // Display Full Table on Web Page
     generateTable(filteredData)
 
-    // Clear Filter Fields
+    // Clear Date Filter Field in HTML Form
     d3.select("#datetime").node().value = ""
+
+    // Clear City Filter Field in HTML Form
     d3.select("#city").node().value = ""
+
+    // Clear State Filter Field in HTML Form
     d3.select("#state").node().value = ""
+
+    // Clear Country Filter Field in HTML Form
     d3.select("#country").node().value = ""
+
+    // Cleanr Shape Filter Field in HTML Form
     d3.select("#shape").node().value = ""}
 
 // Listen for Apply Filter Button Click
