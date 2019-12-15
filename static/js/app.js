@@ -2,14 +2,14 @@
 var tableData = data;
 
 // Define Function for Table Generation
-function generateTable(filteredData)
+function generateTable(Data)
 
     // Create Table & Column Headers
-    {var thead = d3.select("thead").selectAll("th").data(d3.keys(filteredData[0])).enter()
+    {var thead = d3.select("thead").selectAll("th").data(d3.keys(Data[0])).enter()
     .append("th").text(function(x){return x});
 
     // Add Rows to Table
-    var tr = d3.select("tbody").selectAll("tr").data(filteredData).enter().append("tr")
+    var tr = d3.select("tbody").selectAll("tr").data(Data).enter().append("tr")
     
     // Add Cells to Table & Insert Data
     var td = tr.selectAll("td").data(function(x){return d3.values(x)}).enter().append("td")
