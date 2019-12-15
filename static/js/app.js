@@ -4,38 +4,12 @@ var tableData = data;
 // Define Function for Table Generation
 function generateTable()
 
-    // Define Blank List for Header Values
-    {var col = [];
+    {var thead = d3.select("thead").selectAll("th").data(d3.keys(tableData[0])).enter()
+    .append("th").text(function(d){return d});
 
-    //Extract Header Values from Table Data
-    for (var i = 0; i < tableData.length; i++)
-        {for (var key in tableData[i])
-            {if (col.indexOf(key) === -1)
-                {col.push(key);}}}
-
-    // Create Table
-    var table = document.createElement("table");
-
-    // Add Header Row to Table
-    var tr = table.insertRow(-1);
-
-    // Add Column Headers to Table
-    for (var i = 0; i < col.length; i++)
-        {var th = document.createElement("th");
-        th.innerHTML = col[i];
-        tr.appendChild(th);}
-
-    // Add Rows for Table Data
-    for (var i = 0; i < tableData.length; i++)
-        {tr = table.insertRow(-1);
-        
-        for (var j = 0; j < col.length; j++)
-            {var tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = tableData[i][col[j]];}}
-
-    // Create HTML Container for Table
-    var divContainer = document.getElementById("ufo-table");
-    divContainer.innerHTML = "";
-    divContainer.appendChild(table);}
+    var tr = d3.select("tbody").selectAll("tr").data(tableData).enter().append("tr")
+    
+    var td = tr.selectAll("td").data(function(d){return d3.values(d)}).enter().append("td")
+    .text(function(d) {return d})}
 
 generateTable();
