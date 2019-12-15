@@ -17,21 +17,26 @@ function generateTable(Data)
 
     console.log(td)}
 
+generateTable(tableData)
+
 // Define Function for Filtering Data
 function filterData()
 
     {event.preventDefault()
 
+    d3.selectAll('tr').remove()
+
     var filteredData = tableData
-    console.log(filteredData)
 
     var date = d3.select("#datetime").node().value
     console.log(date)
 
     if (date !== "")
-        {filteredData = filteredData.filter(data => data.datetime === date)
+        {filteredData = tableData.filter(data => data.datetime === date)
         console.log(filteredData)}
-    
-    generateTable(filteredData)}
+        
+    generateTable(filteredData)
+
+    d3.select("#datetime").node().value = ""}
 
 d3.select("#filter-btn").on("click", filterData)
