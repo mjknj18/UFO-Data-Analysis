@@ -35,8 +35,7 @@ function filterData()
 
     // Filter Data Based on Date
     if (date !== "")
-        {filteredData = tableData.filter(y => y.datetime === date)
-        console.log(filteredData)}
+        {filteredData = filteredData.filter(y => y.datetime === date)}
     
     // Display Full Table on Web Page
     generateTable(filteredData)
