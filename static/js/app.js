@@ -1,20 +1,45 @@
 // Define Table Data from data.js
 var tableData = data;
 
-// efine Function for Table Generation
-// function generateTable()
-var tbody = document.getElementById('tbody');
+// Fefine Function for Table Generation
+//function generateTable()
 
-for (var i = 0; i < obj.length; i++) {
-    var tr = "<tr>";
+    // EXTRACT VALUE FOR HTML HEADER. 
+        // ('Book ID', 'Book Name', 'Category' and 'Price')
+        var col = [];
+        for (var i = 0; i < tableData.length; i++) {
+            for (var key in tableData[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
 
-    /* Verification to add the last decimal 0 */
-    if (obj[i].value.toString().substring(obj[i].value.toString().indexOf('.'), obj[i].value.toString().length) < 2) 
-        obj[i].value += "0";
+        // CREATE DYNAMIC TABLE.
+        var table = document.createElement("table");
 
-    /* Must not forget the $ sign */
-    tr += "<td>" + obj[i].key + "</td>" + "<td>$" + obj[i].value.toString() + "</td></tr>";
+        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
 
-    /* We add the table row to the table body */
-    tbody.innerHTML += tr;
-}
+        var tr = table.insertRow(-1);                   // TABLE ROW.
+
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");      // TABLE HEADER.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < tableData.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = tableData[i][col[j]];
+            }
+        }
+
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        var divContainer = document.getElementById("ufo-table");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
