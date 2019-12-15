@@ -1,11 +1,6 @@
 // Define Table Data from data.js
 var tableData = data;
 
-// Define Function for Filtering Data
-function filterData()
-
-    {console.log(d3.select("#datetime").node().value)}
-
 // Define Function for Table Generation
 function generateTable(filteredData)
 
@@ -20,6 +15,14 @@ function generateTable(filteredData)
     var td = tr.selectAll("td").data(function(x){return d3.values(x)}).enter().append("td")
     .text(function(x) {return x})}
 
-d3.select("#filter-btn").on("click", filterData())
-
 generateTable(tableData);
+
+// Define Function for Filtering Data
+function filterData()
+
+    {event.preventDefault()
+
+    var date = d3.select("#datetime").node().value
+    console.log(date)}
+
+    d3.select("#filter-btn").on("click", filterData)
