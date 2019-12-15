@@ -13,30 +13,36 @@ function generateTable(Data)
     
     // Add Cells to Table & Insert Data
     var td = tr.selectAll("td").data(function(x){return d3.values(x)}).enter().append("td")
-    .text(function(x) {return x})
+    .text(function(x) {return x})}
 
-    console.log(td)}
-
+// Display Full Table on Web Page Initialization    
 generateTable(tableData)
 
 // Define Function for Filtering Data
 function filterData()
 
+    // Prevent Web Page from Refreshing
     {event.preventDefault()
 
+    // Clears Current Table
     d3.selectAll('tr').remove()
 
+    // Define Variable for Filtered Data
     var filteredData = tableData
 
+    // Extract Date Filter from HTML Form
     var date = d3.select("#datetime").node().value
-    console.log(date)
 
+    // Filter Data Based on Date
     if (date !== "")
-        {filteredData = tableData.filter(data => data.datetime === date)
+        {filteredData = tableData.filter(y => y.datetime === date)
         console.log(filteredData)}
-        
+    
+    // Display Full Table on Web Page
     generateTable(filteredData)
 
+    // Clear Filter Fields
     d3.select("#datetime").node().value = ""}
 
+// Listen for Apply Filter Button Click
 d3.select("#filter-btn").on("click", filterData)
