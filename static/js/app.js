@@ -1,25 +1,20 @@
 // Define Table Data from data.js
 var tableData = data;
 
-// TBD
-function myFunction() {
-    // Declare variables
-    var input = document.getElementById(tableData);
-    console.log(input)
-    var filter = input.value.toUpperCase();
-    var table = document.getElementById("myTable");
-    var tr = table.getElementsByTagName("tr");
-  
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
+// efine Function for Table Generation
+// function generateTable()
+var tbody = document.getElementById('tbody');
+
+for (var i = 0; i < obj.length; i++) {
+    var tr = "<tr>";
+
+    /* Verification to add the last decimal 0 */
+    if (obj[i].value.toString().substring(obj[i].value.toString().indexOf('.'), obj[i].value.toString().length) < 2) 
+        obj[i].value += "0";
+
+    /* Must not forget the $ sign */
+    tr += "<td>" + obj[i].key + "</td>" + "<td>$" + obj[i].value.toString() + "</td></tr>";
+
+    /* We add the table row to the table body */
+    tbody.innerHTML += tr;
+}
