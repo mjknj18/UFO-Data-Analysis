@@ -14,9 +14,9 @@ The goal of this project was to use JavaScript to present an interactive HTML ta
 ## Tasks
 
 1. Import the UFO sightings data from the JSON array.
-2. Create a function to generate a table from the full JSON array or a filtered version.
+2. Create a function to generate and display a table from the full JSON array.
 3. Add filter input fields to the HTML web page for date, city, state, country, and shape.
-4. Create a function to filter the JSON array based on user input and re-generate the table.
+4. Create a function to filter the JSON array based on user input, and generate and display the updated table.
 
 ## Results
 
