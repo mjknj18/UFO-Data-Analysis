@@ -13,7 +13,10 @@ The goal of this project was to use JavaScript to present a filterable HTML tabl
 
 ## Tasks
 
-1. 
+1. Import the UFO sightings data from JSON array.
+2. Create a function for table generation.
+3. Add filter fields to the HTML web page.
+4. Create a function to filter the table data when the user clicks a button to apply filters.
 
 ## Results
 
