@@ -1,6 +1,6 @@
 # UFO-Data-Analysis
 
-
+The goal of this project was to use JavaScript to present a filterable HTML table of UFO sightings data from January 2010. D3 was used to generate and format the table, as well as applying the filters.
 
 ## Questions
 
