@@ -16,4 +16,4 @@
 
 ## Results
 
-1. https://github.com/mjknj18/UFO-Data-Analysis/blob/master/index.html
+1. https://github.com/mjknj18/UFO-Data-Analysis/blob/master/index.html (Run this file in a browser.)
