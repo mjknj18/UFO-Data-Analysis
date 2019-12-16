@@ -5,7 +5,7 @@ The goal of this project was to use JavaScript to present a filterable HTML tabl
 ## Questions
 
 1. Create and display a HTML table of all UFO sightings on web page initialization.
-2. Allow user to filter UFO sightings data by date, city, state, country, and/or state.
+2. Allow user to filter the UFO sightings table by date, city, state, country, and/or state.
 
 ## Datasets
 
